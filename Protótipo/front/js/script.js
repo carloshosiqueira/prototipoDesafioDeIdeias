@@ -1,7 +1,7 @@
 const etiquetas = document.getElementById('etiquetas');
 let etiquetasData = []; // Array para armazenar os dados dos cards
 
-async function criarCard(conteudo, numeroDoPedido) {
+async function criarCard(conteudo, numeroDoPedido, ruc) {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = conteudo;
@@ -10,7 +10,7 @@ async function criarCard(conteudo, numeroDoPedido) {
     etiquetas.appendChild(card);
 
     // Armazena os dados no array
-    etiquetasData.push({ numeroDoPedido, conteudo });
+    etiquetasData.push({ numeroDoPedido, conteudo, ruc });
 }
 
 async function MundialTrading() {
@@ -26,7 +26,7 @@ async function MundialTrading() {
         <p>San Lorenzo - Paraguay</p>
     </div>
     `;
-    await criarCard(conteudo, 1); // Armazenando o número do pedido
+    await criarCard(conteudo, 1, '80082675-2'); // Armazenando o número do pedido
 }
 
 async function Martinar() {
@@ -40,7 +40,7 @@ async function Martinar() {
         <p>Asunción - Paraguay</p>
     </div>
     `;
-    await criarCard(conteudo, 2);
+    await criarCard(conteudo, 2, '80033748-4');
 }
 
 async function Mabsa() {
@@ -55,7 +55,7 @@ async function Mabsa() {
         <p>Asuncion - Paraguay</p>
     </div>
     `;
-    await criarCard(conteudo, 3);
+    await criarCard(conteudo, 3, '80007444-0');
 }
 
 // Chama as funções
@@ -63,21 +63,45 @@ MundialTrading();
 Martinar();
 Mabsa();
 
-
 // Buscar etiquetas
-async function buscarEtiqueta(event) {
+// Buscar etiquetas por RUC
+async function buscarPorRuc(event) {
     event.preventDefault(); // Previne o envio padrão do formulário
-    const numeroPedido = document.getElementById('numeroPedido').value;
+    const ruc = document.getElementById('ruc').value.trim(); // Remove espaços em branco
 
     // Limpa as etiquetas atuais
     etiquetas.innerHTML = '';
 
-    // Encontra o card correspondente ao número do pedido
-    const etiqueta = etiquetasData.find(etiqueta => etiqueta.numeroDoPedido === Number(numeroPedido));
+    // Encontra o card correspondente ao RUC fornecido 
+    const etiqueta = etiquetasData.find(etiqueta => etiqueta.ruc === ruc);
 
     if (etiqueta) {
-        await criarCard(etiqueta.conteudo, etiqueta.numeroDoPedido);
+        await criarCard(etiqueta.conteudo, etiqueta.numeroDoPedido, etiqueta.ruc);
     } else {
         etiquetas.innerHTML = '<p>Nenhuma etiqueta encontrada.</p>';
     }
 }
+
+// Buscar etiquetas por número do pedido
+async function buscarPorNumeroPedido(event) {
+    event.preventDefault(); // Previne o envio padrão do formulário
+    const numeroDoPedido = document.getElementById('numeroDoPedido').value.trim(); // Captura o número do pedido
+
+    // Limpa as etiquetas atuais
+    etiquetas.innerHTML = '';
+
+    // Encontra o card correspondente ao número do pedido fornecido 
+    const etiqueta = etiquetasData.find(etiqueta => 
+        etiqueta.numeroDoPedido.toString() === numeroDoPedido
+    );
+
+    if (etiqueta) {
+        await criarCard(etiqueta.conteudo, etiqueta.numeroDoPedido, etiqueta.ruc);
+    } else {
+        etiquetas.innerHTML = '<p>Nenhuma etiqueta encontrada.</p>';
+    }
+}
+
+// Adicione os listeners para os formulários
+document.getElementById('formRuc').addEventListener('submit', buscarPorRuc);
+document.getElementById('formNumeroPedido').addEventListener('submit', buscarPorNumeroPedido);

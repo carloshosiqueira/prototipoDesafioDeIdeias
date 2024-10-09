@@ -11,9 +11,13 @@
 <body>
     <header>
         <h1>Jaguar</h1>
-        <form id="formBusca" onsubmit="return buscarEtiqueta(event)">
-            <label for="numeroPedido">Número Pedido</label>
-            <input type="text" id="numeroPedido" name="numeroPedido" placeholder="Procure a Etiqueta pelo número do pedido">
+        <form id="formRuc">
+            <input type="text" id="ruc" placeholder="Buscar pelo RUC">
+            <button type="submit">Buscar</button>
+        </form>
+        
+        <form id="formNumeroPedido">
+            <input type="text" id="numeroDoPedido" placeholder="Buscar pelo Número do Pedido">
             <button type="submit">Buscar</button>
         </form>
     </header>
