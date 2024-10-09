@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Jaguar</h1>
+        <form id="formBusca" onsubmit="return buscarEtiqueta(event)">
+            <label for="numeroPedido">Número Pedido</label>
+            <input type="text" id="numeroPedido" name="numeroPedido" placeholder="Procure a Etiqueta pelo número do pedido">
+            <button type="submit">Buscar</button>
+        </form>
+    </header>
+    <main>
+
+        <h1>Etiquetas</h1>
+    <div class="etiquetas" id="etiquetas">
+        
+    </div>
+</main>
+</body>
+<script src="../js/script.js"></script>
+
+</html>
