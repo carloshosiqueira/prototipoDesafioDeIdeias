@@ -192,7 +192,7 @@ main {
     }
     .etiquetas {
         width: 80%;
-        height: 55%;
+        height: 60%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -202,8 +202,8 @@ main {
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        width: 80%;
-        height: 40%;
+        width: 83%;
+        height: fit-content;
         border: 3px solid red;
         font-size: 1rem;
         cursor: pointer;
