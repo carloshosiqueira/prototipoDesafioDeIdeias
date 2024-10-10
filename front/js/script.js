@@ -16,7 +16,7 @@ async function criarCard(conteudo, numeroDoPedido, ruc) {
 async function MundialTrading() {
     const conteudo = `
     <div class="header">
-        <img src="./front/img/logo.jpg" alt="logo da jaguar">
+        <img src="https://jaguarutilidades.com.br/wp-content/uploads/2018/11/jaguar-utilidades-01.png.webp" alt="logo da jaguar">
     </div>
     <div class="dados">
         <p>Importado por:</p>
@@ -32,7 +32,7 @@ async function MundialTrading() {
 async function Martinar() {
     const conteudo = `
     <div class="header">
-        <img src="./front/img/logo.jpg" alt="logo da jaguar">
+        <img src="https://jaguarutilidades.com.br/wp-content/uploads/2018/11/jaguar-utilidades-01.png.webp" alt="logo da jaguar">
     </div>
     <div class="dados">
         <p>Importado por MARTINAR S.A</p>
@@ -46,7 +46,7 @@ async function Martinar() {
 async function Mabsa() {
     const conteudo = `
     <div class="header">
-        <img src="./front/img/logo.jpg" alt="logo da jaguar">
+        <img src="https://jaguarutilidades.com.br/wp-content/uploads/2018/11/jaguar-utilidades-01.png.webp" alt="logo da jaguar">
     </div>
     <div class="dados">
         <p>Representado e importado</p>
